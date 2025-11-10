@@ -1,36 +1,182 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# To-Do App Pro
+
+A high-end task and project management application built with Next.js, TypeScript, and Tailwind CSS. This app features a beautiful, modern UI matching the provided design with comprehensive task management capabilities.
+
+## Features
+
+### Core Functionality
+- ✅ **Task Management**: Create, edit, and organize tasks with status tracking (To Do, In Progress, Done)
+- 📁 **Project Organization**: Group tasks into projects with progress tracking
+- 👥 **Team Collaboration**: Assign tasks to team members with avatar displays
+- 📅 **Due Dates & Time Tracking**: Set due dates and estimated hours for tasks
+- 📊 **Progress Tracking**: Visual progress indicators for tasks and projects
+
+### Advanced Features
+- 📎 **File Attachments**: Upload images and PDFs to tasks
+- 📝 **Notes & Ideas**: Add notes to tasks for tracking ideas and progress
+- 📄 **PDF Processing**: Upload PDFs and automatically extract summaries
+- 🔍 **Search**: Search across tasks and projects
+- 📜 **History**: View completed tasks organized by date
+- 👤 **Profile**: View statistics and manage settings
+
+### UI/UX
+- 🎨 **Modern Design**: Clean, rounded UI with vibrant color palette
+- 📱 **Mobile-First**: Responsive design optimized for mobile devices
+- 🎯 **Intuitive Navigation**: Bottom navigation bar for easy access
+- ✨ **Smooth Animations**: Transitions and hover effects throughout
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **State Management**: Zustand
+- **Icons**: Lucide React
+- **Date Handling**: date-fns
+- **PDF Processing**: pdf-parse
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd to-do-app-pro
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+to-do-app-pro/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   │   ├── upload/        # File upload endpoint
+│   │   └── pdf/           # PDF processing endpoints
+│   ├── projects/          # Project pages
+│   ├── tasks/             # Task pages
+│   ├── history/           # History page
+│   ├── profile/           # Profile page
+│   ├── search/            # Search page
+│   └── page.tsx           # Home/Dashboard page
+├── components/            # React components
+│   ├── Navigation.tsx     # Bottom navigation
+│   ├── TaskCard.tsx       # Task card component
+│   ├── ProjectCard.tsx    # Project card component
+│   ├── ProgressCircle.tsx # Progress indicator
+│   └── ...
+├── lib/                   # Utilities and store
+│   ├── store.ts           # Zustand state management
+│   ├── utils.ts           # Utility functions
+│   ├── pdf-utils.ts       # PDF processing utilities
+│   └── sample-data.ts     # Sample data initialization
+├── types/                 # TypeScript type definitions
+│   └── index.ts          # Type definitions
+└── public/                # Static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Color Palette
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The app uses a vibrant color palette:
+- **Primary Purple**: `#5f33e1`
+- **Yellow**: `#ffe5a4`
+- **Pink**: `#f778ba`
+- **Lavender**: `#ebe4ff`
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Creating a Task
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Navigate to the Home page or a Project page
+2. Click "New task" button
+3. Fill in task details (title, description, due date, etc.)
+4. Select status and assignees
+5. Click "Create Task"
+
+### Adding Attachments
+
+1. Open a task detail page
+2. Go to the "Attachments" tab
+3. Click "Add Attachment"
+4. Select an image or PDF file
+5. For PDFs, a summary will be automatically generated and added as a note
+
+### Adding Notes
+
+1. Open a task detail page
+2. Go to the "Notes" tab
+3. Click "Add Note"
+4. Write your note or idea
+5. Click "Save"
+
+### Creating a Project
+
+1. Navigate to the Projects page
+2. Click "Create Project"
+3. Enter project name and description
+4. Select a color
+5. Click "Create Project"
+
+## API Routes
+
+### `/api/upload`
+Upload files (images, PDFs) and get a data URL.
+
+### `/api/pdf/extract`
+Extract text from a PDF file.
+
+### `/api/pdf/summarize`
+Generate a summary from extracted PDF text.
+
+## Development
+
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## Future Enhancements
+
+- [ ] Database integration (PostgreSQL, MongoDB)
+- [ ] User authentication
+- [ ] Real-time collaboration
+- [ ] Cloud storage for files
+- [ ] AI-powered task suggestions
+- [ ] Calendar view
+- [ ] Recurring tasks
+- [ ] Task templates
+- [ ] Export/Import functionality
+- [ ] Dark mode
+
+## License
+
+MIT
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
