@@ -18,12 +18,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "To-Do App Pro",
   description: "High-end task and project management app",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

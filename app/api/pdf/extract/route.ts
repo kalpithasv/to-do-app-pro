@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import pdfParse from 'pdf-parse';
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,6 +13,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'File must be a PDF' }, { status: 400 });
     }
 
+    // Use require for pdf-parse (CommonJS module)
+    const pdfParse = require('pdf-parse');
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const data = await pdfParse(buffer);
