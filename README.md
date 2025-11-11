@@ -35,6 +35,20 @@ A high-end task and project management application built with Next.js, TypeScrip
 - **Date Handling**: date-fns
 - **PDF Processing**: pdf-parse
 
+## 📱 Progressive Web App (PWA)
+
+This app can be installed as a desktop app! When users visit your deployed site, they can:
+- **Install on Desktop**: Click the install button or browser prompt
+- **Install on Mobile**: Add to home screen from browser menu
+- **Offline Support**: Works offline (data stored locally)
+
+### Setting Up Icons
+
+1. Place your logo in the `/public` folder
+2. Generate icons using the tool at `/scripts/generate-icons.html` (open in browser)
+3. Or use online tools like [RealFaviconGenerator](https://realfavicongenerator.net/)
+4. Required sizes: 72x72, 96x96, 128x128, 144x144, 152x152, 192x192, 384x384, 512x512, and 180x180 (apple-touch-icon)
+
 ## Getting Started
 
 ### Prerequisites
