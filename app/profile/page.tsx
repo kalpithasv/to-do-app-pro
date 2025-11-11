@@ -33,7 +33,24 @@ export default function ProfilePage() {
     <div className="w-full max-w-md mx-auto bg-white min-h-screen rounded-t-3xl shadow-2xl overflow-hidden">
       <div className="p-4 sm:p-6 pb-20 sm:pb-24">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">Profile</h1>
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
+              <img
+                src="/icon-512x512(1).png"
+                alt="To-Do Pro Logo"
+                className="w-full h-full object-contain rounded-xl shadow-md"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/icon-512x512.png';
+                  target.onerror = () => {
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-[#5f33e1] to-[#f778ba] rounded-xl flex items-center justify-center text-white text-lg font-bold">✓</div>';
+                  };
+                }}
+              />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-800">Profile</h1>
+          </div>
           <DarkModeToggle />
         </div>
 
@@ -41,21 +58,22 @@ export default function ProfilePage() {
         <div className="flex items-center gap-4 mb-8">
           <div className="relative">
             <Avatar name={currentUser.name} size={80} />
-            <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1 shadow-md">
-              <img
-                src="/icon-512x512(1).png"
-                alt="App Logo"
-                width={28}
-                height={28}
-                className="rounded-full"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = '/icon-512x512.png';
-                  target.onerror = () => {
-                    target.style.display = 'none';
-                  };
-                }}
-              />
+            <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1.5 shadow-lg border-2 border-white">
+              <div className="w-10 h-10">
+                <img
+                  src="/icon-512x512(1).png"
+                  alt="App Logo"
+                  className="w-full h-full object-contain rounded-full"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/icon-512x512.png';
+                    target.onerror = () => {
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-[#5f33e1] to-[#f778ba] rounded-full flex items-center justify-center text-white text-sm font-bold">✓</div>';
+                    };
+                  }}
+                />
+              </div>
             </div>
           </div>
           <div>

@@ -58,20 +58,18 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center p-6" style={{ background: 'linear-gradient(135deg, #ebe4ff 0%, #ffe5a4 100%)' }}>
       <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8">
         <div className="text-center mb-8">
-          <div className="relative inline-flex items-center justify-center mb-4">
-            <div className="relative">
+          <div className="relative inline-flex items-center justify-center mb-6">
+            <div className="w-32 h-32 sm:w-40 sm:h-40">
               <img
                 src="/icon-512x512(1).png"
                 alt="To-Do Pro Logo"
-                width={80}
-                height={80}
-                className="rounded-2xl shadow-lg"
+                className="w-full h-full object-contain rounded-2xl shadow-2xl"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = '/icon-512x512.png';
                   target.onerror = () => {
                     target.style.display = 'none';
-                    target.parentElement!.innerHTML = '<div class="w-20 h-20 bg-gradient-to-br from-[#5f33e1] to-[#f778ba] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">✓</div>';
+                    target.parentElement!.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-[#5f33e1] to-[#f778ba] rounded-2xl flex items-center justify-center text-white text-4xl font-bold shadow-2xl">✓</div>';
                   };
                 }}
               />

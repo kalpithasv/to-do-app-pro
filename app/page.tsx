@@ -40,20 +40,21 @@ export default function Home() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
-            <img
-              src="/icon-512x512(1).png"
-              alt="To-Do Pro Logo"
-              width={48}
-              height={48}
-              className="rounded-xl shadow-md"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = '/icon-512x512.png';
-                target.onerror = () => {
-                  target.style.display = 'none';
-                };
-              }}
-            />
+            <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0">
+              <img
+                src="/icon-512x512(1).png"
+                alt="To-Do Pro Logo"
+                className="w-full h-full object-contain rounded-xl shadow-lg"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/icon-512x512.png';
+                  target.onerror = () => {
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-[#5f33e1] to-[#f778ba] rounded-xl flex items-center justify-center text-white text-2xl font-bold">✓</div>';
+                  };
+                }}
+              />
+            </div>
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">
                 Hello, {currentUser.name}
