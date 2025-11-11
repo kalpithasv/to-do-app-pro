@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Use require for CommonJS module compatibility (works in Node.js runtime)
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const pdfParse = require('pdf-parse');
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -13,10 +17,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'File must be a PDF' }, { status: 400 });
     }
 
-    // Dynamic import for pdf-parse - it's a CommonJS module
-    const pdfParseModule = await import('pdf-parse');
-    // pdf-parse exports the function directly, not as default
-    const pdfParse = (pdfParseModule as any).default || pdfParseModule;
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const data = await pdfParse(buffer);
