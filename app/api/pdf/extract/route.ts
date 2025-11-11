@@ -13,8 +13,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'File must be a PDF' }, { status: 400 });
     }
 
-    // Use require for pdf-parse (CommonJS module)
-    const pdfParse = require('pdf-parse');
+    // Dynamic import for pdf-parse - it's a CommonJS module
+    const pdfParseModule = await import('pdf-parse');
+    // pdf-parse exports the function directly, not as default
+    const pdfParse = (pdfParseModule as any).default || pdfParseModule;
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const data = await pdfParse(buffer);
