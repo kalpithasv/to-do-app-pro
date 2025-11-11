@@ -39,7 +39,25 @@ export default function ProfilePage() {
 
         {/* User Info */}
         <div className="flex items-center gap-4 mb-8">
-          <Avatar name={currentUser.name} size={80} />
+          <div className="relative">
+            <Avatar name={currentUser.name} size={80} />
+            <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1 shadow-md">
+              <img
+                src="/icon-512x512(1).png"
+                alt="App Logo"
+                width={28}
+                height={28}
+                className="rounded-full"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/icon-512x512.png';
+                  target.onerror = () => {
+                    target.style.display = 'none';
+                  };
+                }}
+              />
+            </div>
+          </div>
           <div>
             <h2 className="text-2xl font-bold text-gray-800">{currentUser.name}</h2>
             <p className="text-gray-600">Member since {new Date().getFullYear()}</p>

@@ -149,16 +149,64 @@ export default function AboutPage() {
       <div className="p-4 sm:p-6 pb-20 sm:pb-24">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">About To-Do Pro</h1>
-          <p className="text-gray-600 text-sm sm:text-base">
-            A comprehensive task and project management app designed to boost your productivity
-          </p>
+          <div className="flex items-center gap-4 mb-4">
+            <img
+              src="/icon-512x512(1).png"
+              alt="To-Do Pro Logo"
+              width={60}
+              height={60}
+              className="rounded-xl shadow-md"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/icon-512x512.png';
+                target.onerror = () => {
+                  target.style.display = 'none';
+                  target.parentElement!.innerHTML = '<div class="w-15 h-15 bg-gradient-to-br from-[#5f33e1] to-[#f778ba] rounded-xl flex items-center justify-center text-white text-xl font-bold">✓</div>';
+                };
+              }}
+            />
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800 mb-1">About To-Do Pro</h1>
+              <p className="text-gray-600 text-sm sm:text-base">
+                A comprehensive task and project management app designed to boost your productivity
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* App Description */}
-        <div className="bg-gradient-to-r from-[#5f33e1] to-[#f778ba] rounded-2xl p-6 text-white mb-8 shadow-lg">
-          <div className="flex items-center gap-3 mb-4">
-            <AnimatedIcon icon={CheckSquare} size={40} color="#ffffff" />
+        <div className="bg-gradient-to-r from-[#5f33e1] to-[#f778ba] rounded-2xl p-6 text-white mb-8 shadow-lg relative overflow-hidden">
+          <div className="absolute top-4 right-4 opacity-20">
+            <img
+              src="/icon-512x512(1).png"
+              alt="Logo"
+              width={100}
+              height={100}
+              className="rounded-2xl"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/icon-512x512.png';
+                target.onerror = () => {
+                  target.style.display = 'none';
+                };
+              }}
+            />
+          </div>
+          <div className="flex items-center gap-3 mb-4 relative z-10">
+            <img
+              src="/icon-512x512(1).png"
+              alt="Logo"
+              width={50}
+              height={50}
+              className="rounded-xl bg-white/20 p-1"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/icon-512x512.png';
+                target.onerror = () => {
+                  target.style.display = 'none';
+                };
+              }}
+            />
             <h2 className="text-2xl font-bold">Welcome to To-Do Pro</h2>
           </div>
           <p className="text-sm sm:text-base opacity-90 leading-relaxed">

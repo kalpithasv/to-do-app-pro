@@ -59,7 +59,23 @@ export default function LoginPage() {
       <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8">
         <div className="text-center mb-8">
           <div className="relative inline-flex items-center justify-center mb-4">
-            <AnimatedIcon icon={Sparkles} size={80} color="#5f33e1" />
+            <div className="relative">
+              <img
+                src="/icon-512x512(1).png"
+                alt="To-Do Pro Logo"
+                width={80}
+                height={80}
+                className="rounded-2xl shadow-lg"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/icon-512x512.png';
+                  target.onerror = () => {
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = '<div class="w-20 h-20 bg-gradient-to-br from-[#5f33e1] to-[#f778ba] rounded-2xl flex items-center justify-center text-white text-2xl font-bold">✓</div>';
+                  };
+                }}
+              />
+            </div>
           </div>
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome to To-Do Pro</h1>
           <p className="text-gray-600">Enter your name to get started</p>

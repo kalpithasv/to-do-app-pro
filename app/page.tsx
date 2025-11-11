@@ -39,11 +39,27 @@ export default function Home() {
       <div className="p-4 sm:p-6 pb-20 sm:pb-24">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">
-              Hello, {currentUser.name}
-            </h1>
-            <p className="text-xs sm:text-sm text-gray-500">Welcome back!</p>
+          <div className="flex items-center gap-3">
+            <img
+              src="/icon-512x512(1).png"
+              alt="To-Do Pro Logo"
+              width={48}
+              height={48}
+              className="rounded-xl shadow-md"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/icon-512x512.png';
+                target.onerror = () => {
+                  target.style.display = 'none';
+                };
+              }}
+            />
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1">
+                Hello, {currentUser.name}
+              </h1>
+              <p className="text-xs sm:text-sm text-gray-500">Welcome back!</p>
+            </div>
           </div>
           <Link href="/notifications">
             <div className="relative p-2 hover:bg-gray-100 rounded-xl transition-colors">
